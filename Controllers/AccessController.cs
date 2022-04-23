@@ -38,7 +38,7 @@ namespace MiVideoClub.Controllers
           }
           catch(Exception ex)
           {
-            return Content("Ocurrio un error :( " + ex.Message);
+            return Content("Ocurrio un error T_T " + ex.Message);
           }
       }
     }
