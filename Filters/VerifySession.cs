@@ -17,7 +17,14 @@ namespace MiVideoClub.Filters
       {
         if(filterContext.Controller is AccessController == false)
         {
-          filterContext.HttpContext.Response.Redirect("Access/Index");
+          filterContext.HttpContext.Response.Redirect("~/Access/Index");
+        }
+      }
+      else
+      {
+        if (filterContext.Controller is AccessController == true)
+        {
+          filterContext.HttpContext.Response.Redirect("~/Home/Index");
         }
       }
 
