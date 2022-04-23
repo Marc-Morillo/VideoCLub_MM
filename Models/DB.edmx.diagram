@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36350e2a30984d208f420cd40bde0502" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="VideoClubModel.C_Elenco" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.C_Estado" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.C_Generos" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.C_Idiomas" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.C_TandaLaboral" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.C_TipoArticulo" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.C_TipoPersona" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.Clientes" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.DescripcionArticulo" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.Empleados" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.RentaDevolucion" Width="1.5" PointX="10.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VideoClubModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="VideoClubModel.FK__Elenco__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_DescripcionArticulo__Elenco" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK__Generos__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK__Idiomas__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK__TandaLaboral__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK__TipoArticulo__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK__TipoPersona__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_Clientes__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_DescripcionArticulo__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_Empleados__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_RentaDevolucion__Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_DescripcionArticulo__Generos" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_DescripcionArticulo__Idiomas" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_Empleados__TandaLaboral" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_DescripcionArticulo__TipoArticulo" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_Clientes__TipoPersona1" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_RentaDevolucion_Clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_RentaDevolucion_DescripcionArticulo" ManuallyRouted="false" />
+        <AssociationConnector Association="VideoClubModel.FK_RentaDevolucion_Empleados" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

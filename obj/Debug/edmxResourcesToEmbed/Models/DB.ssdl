@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VideoClubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="_Elenco">
+    <Key>
+      <PropertyRef Name="idElenco" />
+    </Key>
+    <Property Name="idElenco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="60" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="_Estado">
+    <Key>
+      <PropertyRef Name="idEstado" />
+    </Key>
+    <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="_Generos">
+    <Key>
+      <PropertyRef Name="idGenero" />
+    </Key>
+    <Property Name="idGenero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="60" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="_Idiomas">
+    <Key>
+      <PropertyRef Name="idIdioma" />
+    </Key>
+    <Property Name="idIdioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="60" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="_TandaLaboral">
+    <Key>
+      <PropertyRef Name="idTandaLaboral" />
+    </Key>
+    <Property Name="idTandaLaboral" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="60" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="_TipoArticulo">
+    <Key>
+      <PropertyRef Name="idTipoArticulo" />
+    </Key>
+    <Property Name="idTipoArticulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="60" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="_TipoPersona">
+    <Key>
+      <PropertyRef Name="idTipoPersona" />
+    </Key>
+    <Property Name="idTipoPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="60" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="60" />
+    <Property Name="Cedula" Type="varchar" MaxLength="15" />
+    <Property Name="NoTarjetaCR" Type="varchar" MaxLength="20" />
+    <Property Name="LimiteCredito" Type="int" />
+    <Property Name="idTipoPersona" Type="int" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="DescripcionArticulo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="varchar" MaxLength="60" />
+    <Property Name="idElenco" Type="int" />
+    <Property Name="idTipoArticulo" Type="int" />
+    <Property Name="idIdioma" Type="int" />
+    <Property Name="idGenero" Type="int" />
+    <Property Name="RentaporDia" Type="int" />
+    <Property Name="DiasRenta" Type="int" />
+    <Property Name="MontoEntrega" Type="int" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="60" />
+    <Property Name="Cedula" Type="varchar" MaxLength="15" />
+    <Property Name="idTandaLaboral" Type="int" />
+    <Property Name="Porciento" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FechaIngreso" Type="datetime" />
+    <Property Name="idEstado" Type="int" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="60" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="RentaDevolucion">
+    <Key>
+      <PropertyRef Name="NoRenta" />
+    </Key>
+    <Property Name="NoRenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idEmpleado" Type="int" />
+    <Property Name="idCliente" Type="int" />
+    <Property Name="idArticulo" Type="int" />
+    <Property Name="FechaRenta" Type="datetime" />
+    <Property Name="FechaDevolucion" Type="datetime" />
+    <Property Name="Monto" Type="int" />
+    <Property Name="CantidadDeDias" Type="int" />
+    <Property Name="Comentario" Type="varchar" MaxLength="140" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Elenco__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="_Elenco" Type="Self._Elenco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="_Elenco">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Generos__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="_Generos" Type="Self._Generos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="_Generos">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Idiomas__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="_Idiomas" Type="Self._Idiomas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="_Idiomas">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TandaLaboral__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="_TandaLaboral" Type="Self._TandaLaboral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="_TandaLaboral">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TipoArticulo__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="_TipoArticulo" Type="Self._TipoArticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="_TipoArticulo">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TipoPersona__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="_TipoPersona" Type="Self._TipoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="_TipoPersona">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes__TipoPersona1">
+    <End Role="_TipoPersona" Type="Self._TipoPersona" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_TipoPersona">
+        <PropertyRef Name="idTipoPersona" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="idTipoPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DescripcionArticulo__Elenco">
+    <End Role="_Elenco" Type="Self._Elenco" Multiplicity="0..1" />
+    <End Role="DescripcionArticulo" Type="Self.DescripcionArticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Elenco">
+        <PropertyRef Name="idElenco" />
+      </Principal>
+      <Dependent Role="DescripcionArticulo">
+        <PropertyRef Name="idElenco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DescripcionArticulo__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="DescripcionArticulo" Type="Self.DescripcionArticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="DescripcionArticulo">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DescripcionArticulo__Generos">
+    <End Role="_Generos" Type="Self._Generos" Multiplicity="0..1" />
+    <End Role="DescripcionArticulo" Type="Self.DescripcionArticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Generos">
+        <PropertyRef Name="idGenero" />
+      </Principal>
+      <Dependent Role="DescripcionArticulo">
+        <PropertyRef Name="idGenero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DescripcionArticulo__Idiomas">
+    <End Role="_Idiomas" Type="Self._Idiomas" Multiplicity="0..1" />
+    <End Role="DescripcionArticulo" Type="Self.DescripcionArticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Idiomas">
+        <PropertyRef Name="idIdioma" />
+      </Principal>
+      <Dependent Role="DescripcionArticulo">
+        <PropertyRef Name="idIdioma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DescripcionArticulo__TipoArticulo">
+    <End Role="_TipoArticulo" Type="Self._TipoArticulo" Multiplicity="0..1" />
+    <End Role="DescripcionArticulo" Type="Self.DescripcionArticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_TipoArticulo">
+        <PropertyRef Name="idTipoArticulo" />
+      </Principal>
+      <Dependent Role="DescripcionArticulo">
+        <PropertyRef Name="idTipoArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados__TandaLaboral">
+    <End Role="_TandaLaboral" Type="Self._TandaLaboral" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_TandaLaboral">
+        <PropertyRef Name="idTandaLaboral" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="idTandaLaboral" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RentaDevolucion__Estado">
+    <End Role="_Estado" Type="Self._Estado" Multiplicity="0..1" />
+    <End Role="RentaDevolucion" Type="Self.RentaDevolucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="RentaDevolucion">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RentaDevolucion_Clientes">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="RentaDevolucion" Type="Self.RentaDevolucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RentaDevolucion">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RentaDevolucion_DescripcionArticulo">
+    <End Role="DescripcionArticulo" Type="Self.DescripcionArticulo" Multiplicity="0..1" />
+    <End Role="RentaDevolucion" Type="Self.RentaDevolucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DescripcionArticulo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RentaDevolucion">
+        <PropertyRef Name="idArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RentaDevolucion_Empleados">
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+    <End Role="RentaDevolucion" Type="Self.RentaDevolucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RentaDevolucion">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VideoClubModelStoreContainer">
+    <EntitySet Name="_Elenco" EntityType="Self._Elenco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="_Estado" EntityType="Self._Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="_Generos" EntityType="Self._Generos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="_Idiomas" EntityType="Self._Idiomas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="_TandaLaboral" EntityType="Self._TandaLaboral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="_TipoArticulo" EntityType="Self._TipoArticulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="_TipoPersona" EntityType="Self._TipoPersona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DescripcionArticulo" EntityType="Self.DescripcionArticulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentaDevolucion" EntityType="Self.RentaDevolucion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Elenco__Estado" Association="Self.FK__Elenco__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="_Elenco" EntitySet="_Elenco" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Generos__Estado" Association="Self.FK__Generos__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="_Generos" EntitySet="_Generos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Idiomas__Estado" Association="Self.FK__Idiomas__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="_Idiomas" EntitySet="_Idiomas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TandaLaboral__Estado" Association="Self.FK__TandaLaboral__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="_TandaLaboral" EntitySet="_TandaLaboral" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TipoArticulo__Estado" Association="Self.FK__TipoArticulo__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="_TipoArticulo" EntitySet="_TipoArticulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TipoPersona__Estado" Association="Self.FK__TipoPersona__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="_TipoPersona" EntitySet="_TipoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes__Estado" Association="Self.FK_Clientes__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes__TipoPersona1" Association="Self.FK_Clientes__TipoPersona1">
+      <End Role="_TipoPersona" EntitySet="_TipoPersona" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DescripcionArticulo__Elenco" Association="Self.FK_DescripcionArticulo__Elenco">
+      <End Role="_Elenco" EntitySet="_Elenco" />
+      <End Role="DescripcionArticulo" EntitySet="DescripcionArticulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DescripcionArticulo__Estado" Association="Self.FK_DescripcionArticulo__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="DescripcionArticulo" EntitySet="DescripcionArticulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DescripcionArticulo__Generos" Association="Self.FK_DescripcionArticulo__Generos">
+      <End Role="_Generos" EntitySet="_Generos" />
+      <End Role="DescripcionArticulo" EntitySet="DescripcionArticulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DescripcionArticulo__Idiomas" Association="Self.FK_DescripcionArticulo__Idiomas">
+      <End Role="_Idiomas" EntitySet="_Idiomas" />
+      <End Role="DescripcionArticulo" EntitySet="DescripcionArticulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DescripcionArticulo__TipoArticulo" Association="Self.FK_DescripcionArticulo__TipoArticulo">
+      <End Role="_TipoArticulo" EntitySet="_TipoArticulo" />
+      <End Role="DescripcionArticulo" EntitySet="DescripcionArticulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados__Estado" Association="Self.FK_Empleados__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados__TandaLaboral" Association="Self.FK_Empleados__TandaLaboral">
+      <End Role="_TandaLaboral" EntitySet="_TandaLaboral" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RentaDevolucion__Estado" Association="Self.FK_RentaDevolucion__Estado">
+      <End Role="_Estado" EntitySet="_Estado" />
+      <End Role="RentaDevolucion" EntitySet="RentaDevolucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RentaDevolucion_Clientes" Association="Self.FK_RentaDevolucion_Clientes">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="RentaDevolucion" EntitySet="RentaDevolucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RentaDevolucion_DescripcionArticulo" Association="Self.FK_RentaDevolucion_DescripcionArticulo">
+      <End Role="DescripcionArticulo" EntitySet="DescripcionArticulo" />
+      <End Role="RentaDevolucion" EntitySet="RentaDevolucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RentaDevolucion_Empleados" Association="Self.FK_RentaDevolucion_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="RentaDevolucion" EntitySet="RentaDevolucion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
